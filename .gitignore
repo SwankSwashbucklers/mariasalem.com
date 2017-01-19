@@ -1,0 +1,9 @@
+.DS_Store
+*.pyc
+
+www.zip
+/www
+
+/dev/sass/.sass-cache
+/dev/sass/_all.scss
+/dev/sass/watch.py
