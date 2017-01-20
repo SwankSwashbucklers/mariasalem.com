@@ -1,34 +1,124 @@
 @import "all";
 
-.links {
-	@include fixpos(0);
-	@include flexbox;
-	@include flex-flow(wrap);
-	@include justify-content(space-around);
-	@include align-items(center);
-	@include align-content(center);
-	> span {
-		@include flex(none);
-		position: relative;
-		font-size: 8rem;
-		width: 8rem;
-		height: 8rem;
-		text-align: center;
-		margin: 3rem;
-		&:hover {
-			opacity: 0.7;
-		}
-		> a, &:before {
-			@include abspos(0);
-		}
-	}
-}
+// VARIABLES *******************************************************************
 
+$background-color: #E4E4E2;
+$font-color: #434340;
+
+// LAYOUT **********************************************************************
+@include max-screen(1175px) {
+  .img-container {
+    left: -300px !important;
+  }
+  .content.home {
+    left: 415px !important;
+  }
+};
+
+// STYLING *********************************************************************
 
 body {
-  background: blue;
+  background: $background-color;
+  color: $font-color;
+  font-weight: 400;
+  font-size: 18px;
 }
 
 h1 {
-  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2em;
+}
+
+button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 0px;
+  border: 1px solid $font-color;
+  background: $background-color;
+  padding: 8px 24px;
+  font-family: $main-font-stack;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  font-weight: 400;
+  &:hover {
+    background: $font-color;
+  }
+  &:focus {
+    outline: none;
+  }
+  > a {
+    text-decoration: none;
+    &, &:visited, &:active {
+      color: $font-color;
+    }
+    &:hover {
+      color: $background-color;
+    }
+  }
+}
+
+.img-container {
+  @include fixpos(0, auto, 0, 0);
+  img.profile {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.content {
+  @include fixpos(0, 0, 0, 50%);
+  z-index: 1;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-content(center);
+  @include align-items(center);
+  padding: 0px 50px;
+}
+
+.menu {
+  position: absolute;
+  right: 20px;
+  > span {
+    position: relative;
+    margin-left: 0.5em;
+    > a {
+      @include abspos(0);
+      text-decoration: none;
+      &, &:visited, &:active {
+        color: $font-color;
+      }
+    }
+    &.clickable {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    &.divider {
+      bottom: 0.1em;
+    }
+  }
+  &.top {
+    top: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    span {
+      font-size: 1.2rem;
+    }
+  }
+  &.bottom {
+    font-size: 2.5rem;
+    bottom: 12px;
+  }
+}
+
+.content.resume-holder {
+  left: 0px !important;
 }
