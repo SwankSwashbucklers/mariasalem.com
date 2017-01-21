@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-% include('~head.tpl', title='Maria Salem | Event Expert', description='Event and Venue expert as Customer Experience Manager for a nightlife application with a background in Events and Wedding Coordinating. Hire me!')
+% include('~head.tpl', title='Maria Salem | Resume', description='Event and Venue expert as Customer Experience Manager for a nightlife application with a background in Events and Wedding Coordinating. Hire me!')
   <body class="main">
     <div class="content resume-holder">
       <div class="top menu">

@@ -48,6 +48,9 @@ button {
   font-weight: 400;
   &:hover {
     background: $font-color;
+    > a {
+      color: $background-color !important;
+    }
   }
   &:focus {
     outline: none;
