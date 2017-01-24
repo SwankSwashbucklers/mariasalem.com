@@ -2,26 +2,81 @@
 
 // VARIABLES *******************************************************************
 
-$background-color: #E4E4E2;
-$font-color: #434340;
+$background-color: #FFFFFF;
+$font-color: #000000;
 
 // LAYOUT **********************************************************************
-@include max-screen(1175px) {
-  .img-container {
-    left: -300px !important;
+
+// 650
+@include max-screen(800px) {
+  // img.profile {
+  //   margin-right: -150px;
+  // }
+  body.main {
+    @include flex-direction(column);
   }
   .content.home {
-    left: 415px !important;
+    @include order(1);
+    padding-right: 50px;
+    padding-bottom: 50px;
+  }
+  img.profile {
+    @include flex(none);
+    height: 35%;
+    @include align-self(flex-end);
+    @include order(0);
   }
 };
 
+
+@include max-screen-height(800px) {
+  @include max-screen(500px) {
+    .contact-btn {
+      display: none;
+    }
+    .content.resume > iframe {
+      margin: 0px !important
+    }
+  };
+};
+
+@include min-screen(800px) {
+  .content.home {
+    //@include flex(1);
+    margin-right: -20px;
+  }
+  img.profile {
+    @include flex(none);
+    height: 100%;
+  }
+};
+
+
+
+
+
 // STYLING *********************************************************************
 
-body {
+body.main {
   background: $background-color;
   color: $font-color;
   font-weight: 400;
-  font-size: 18px;
+  @include flexbox;
+  .content {
+    @include flex(1);
+    z-index: 1;
+    &.home {
+      @include flexbox;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-content(center);
+      @include align-items(center);
+      padding-left: 50px;
+    }
+  }
+  img {
+    width: auto;
+  }
 }
 
 h1 {
@@ -33,10 +88,11 @@ h3 {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.2em;
+  max-width: 600px;
 }
 
 button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   border-radius: 0px;
   border: 1px solid $font-color;
@@ -46,6 +102,10 @@ button {
   margin-top: 30px;
   margin-bottom: 40px;
   font-weight: 400;
+  @include transition(background 0.5s);
+  > a {
+    @include transition(color 0.5s);
+  }
   &:hover {
     background: $font-color;
     > a {
@@ -66,31 +126,13 @@ button {
   }
 }
 
-.img-container {
-  @include fixpos(0, auto, 0, 0);
-  img.profile {
-    width: auto;
-    height: 100%;
-  }
-}
-
-.content {
-  @include fixpos(0, 0, 0, 50%);
-  z-index: 1;
-  @include flexbox;
-  @include flex-direction(column);
-  @include justify-content(center);
-  @include align-content(center);
-  @include align-items(center);
-  padding: 0px 50px;
-}
-
 .menu {
   position: absolute;
-  right: 20px;
+  z-index: 10;
+  left: 20px;
   > span {
     position: relative;
-    margin-left: 0.5em;
+    margin-right: 0.5em;
     > a {
       @include abspos(0);
       text-decoration: none;
@@ -122,6 +164,12 @@ button {
   }
 }
 
-.content.resume-holder {
-  left: 0px !important;
+.content.resume {
+  @include flexbox;
+  @include justify-content(center);
+  > iframe {
+    @include flex(1);
+    max-width: 1000px;
+    margin: 0px 50px;
+  }
 }

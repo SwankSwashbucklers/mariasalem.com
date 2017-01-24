@@ -372,12 +372,15 @@ def generate_javascript():
 
 
 def get_favicon_head():
+    # TODO: add version number into the script to fix caching
+    # TODO: don't build the favicon elements every time
+    # TODO: nest repositories?
     link_tpl     = lambda c: '    <link {0}>\n'.format(c)
     all_favs     = os.listdir('static/favicon')
     favicons     = [ x for x in all_favs if x.startswith('favicon') ]
     apple_favs   = [ x for x in all_favs if x.startswith('apple')   ]
     android_favs = [ x for x in all_favs if not x in favicons + apple_favs ]
-    fav_head = link_tpl('rel="shortcut icon" href="favicon.ico"')
+    fav_head = link_tpl('rel="shortcut icon" href="favicon.ico?v=2"')
     favicons.remove('favicon.ico')
     def gen_head(fav_tpl, fav_set):
         dic = {}
@@ -390,9 +393,9 @@ def get_favicon_head():
         for key in keys:
             yield link_tpl( fav_tpl.format(key, dic[key]) )
     for fav_set in [
-        ('rel="icon" sizes="{0}x{0}" href="/{1}"', android_favs),
-        ('rel="apple-touch-icon" sizes="{0}x{0}" href="/{1}"', apple_favs),
-        ('rel="icon" type="image/png" sizes="{0}x{0}" href="/{1}"', favicons) ]:
+        ('rel="icon" sizes="{0}x{0}" href="/{1}?v=2"', android_favs),
+        ('rel="apple-touch-icon" sizes="{0}x{0}" href="/{1}?v=2"', apple_favs),
+        ('rel="icon" type="image/png" sizes="{0}x{0}" href="/{1}?v=2"', favicons) ]:
         fav_head += "".join( gen_head(*fav_set) )
     return fav_head
 
