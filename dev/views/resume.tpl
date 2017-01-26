@@ -2,6 +2,7 @@
 <html lang="en">
 % include('~head.tpl', title='Maria Salem | Resume', description='Event and Venue expert as Customer Experience Manager for a nightlife application with a background in Events and Wedding Coordinating. Hire me!')
   <body class="main">
+    % include('~structuredData.tpl')
     <div class="top menu">
       <!--span class="clickable">Home<a href="/"></a></span>
       <span class="divider">|</span-->

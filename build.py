@@ -269,13 +269,17 @@ def migrate_files(directory, destination):
 
 
 def migrate_views():
-    return ([ MAIN_ROUTE("", "load_root", "index") ] +
-            [ MAIN_ROUTE(
-                splitext(r)[0],
-                "load_" + splitext(r.split("/")[-1])[0].replace("-","_"),
-                splitext(r.split("/")[-1])[0]
-            ) for r in migrate_files("dev/views", "views") ])
-
+    routes = [ MAIN_ROUTE("", "load_root", "index") ]
+    for route in migrate_files("dev/views", "views"):
+        tpl_name = splitext(route.split("/")[-1])[0]
+        if tpl_name == "index":
+            continue
+        routes.append(MAIN_ROUTE(
+            splitext(route)[0],
+            "load_" + tpl_name.replace("-","_"),
+            tpl_name
+        ))
+    return routes
 
 def get_api_routes():
     with open( join(SCRIPT_DIR, "dev/py", "routes.py"), 'r') as f:
