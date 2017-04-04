@@ -14,5 +14,6 @@
       <!--embed src="resume.pdf" type='application/pdf'-->
       <iframe src="http://docs.google.com/gview?url=http://mariasalem.com/resume.pdf&embedded=true" frameborder="0"></iframe>
     </div>
+% include('~footer.tpl')
   </body>
 </html>

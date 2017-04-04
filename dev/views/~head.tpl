@@ -10,7 +10,4 @@
     <meta name="favicon_resources">
     <meta name="open_graph">
     <meta name="style_sheets">
-
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,700" rel="stylesheet">
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
 </head>

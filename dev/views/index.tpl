@@ -27,5 +27,6 @@
         <a href="mailto:2016msalem@gmail.com"></a>
       </span>
     </div>
+% include('~footer.tpl')
   </body>
 </html>
