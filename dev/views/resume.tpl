@@ -3,6 +3,18 @@
 % include('~head.tpl', title='Maria Salem | Resume', description='Event and Venue expert as Customer Experience Manager for a nightlife application with a background in Events and Wedding Coordinating. Hire me!')
   <body class="main">
     % include('~structuredData.tpl')
+    <style>
+      @media all and (-ms-high-contrast:none) {
+        .content.resume > iframe {
+          max-width: none;
+          height: 100%;
+        } /* IE10 */
+        *::-ms-backdrop, .content.resume > iframe {
+          max-width: none;
+          height: 100%;
+        } /* IE11 */
+      }
+    </style>
     <div class="top menu">
       <!--span class="clickable">Home<a href="/"></a></span>
       <span class="divider">|</span-->
